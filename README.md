@@ -7,6 +7,14 @@
 - Скачайте код
 - Установите зависимости командой `pip install -r requirements.txt`
 - Создайте файл базы данных и сразу примените все миграции командой `python3 manage.py migrate`
+- Добавьте `phonenumber_field` в список установленных приложений в settings.py файл:
+```python
+INSTALLED_APPS = [
+    ...
+    'phonenumber_field',
+    ...
+]
+```
 - Запустите сервер командой `python3 manage.py runserver`
 
 ## Переменные окружения
