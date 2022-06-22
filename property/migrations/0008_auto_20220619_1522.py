@@ -5,7 +5,7 @@ from django.db import migrations
 
 def validate_owners_phonenumbers(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.all().iterator():
         parse_number = phonenumbers.parse(flat.owners_phonenumber, "RU")
         if phonenumbers.is_valid_number(parse_number):
             pure_number = phonenumbers.format_number(
@@ -18,7 +18,7 @@ def validate_owners_phonenumbers(apps, schema_editor):
 
 def move_backward(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.all().iterator():
         flat.owner_pure_phone = ''
         flat.save()
 
