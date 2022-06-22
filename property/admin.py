@@ -9,15 +9,13 @@ class OwnerInline(admin.TabularInline):
 
 
 class FlatAdmin(admin.ModelAdmin):
-    search_fields = ['owner', 'town', 'address']
+    search_fields = ['town', 'address']
     readonly_fields = ['created_at']
     list_editable = ['new_building']
     list_display = [
         'address',
         'price',
         'new_building',
-        'owners_phonenumber',
-        'owner_pure_phone',
         'construction_year',
         'town',
     ]
