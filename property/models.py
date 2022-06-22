@@ -90,7 +90,7 @@ class Owner(models.Model):
     flat = models.ManyToManyField(
         Flat,
         verbose_name='Квартиры в собственности',
-        related_name='client_owner',
+        related_name='owner',
         db_index=True,
     )
 
