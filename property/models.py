@@ -80,12 +80,12 @@ class Owner(models.Model):
         max_length=200,
         db_index=True,
     )
-    owners_phonenumber = models.CharField(
+    phonenumber = models.CharField(
         'Номер владельца',
         max_length=200,
         db_index=True,
     )
-    owner_pure_phone = PhoneNumberField(
+    pure_phone = PhoneNumberField(
         'Нормализованный номер владельца',
         blank=True,
         db_index=True,
