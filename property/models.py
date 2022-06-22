@@ -51,6 +51,7 @@ class Flat(models.Model):
         User,
         blank=True,
         verbose_name='Кто лайкнул',
+        related_name='liked_by'
     )
 
     def __str__(self):
@@ -61,12 +62,14 @@ class Complaint(models.Model):
     who_complaint = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name='Кто жаловался'
+        verbose_name='Кто жаловался',
+        related_name='complaint',
     )
     flat = models.ForeignKey(
         Flat,
         on_delete=models.CASCADE,
         verbose_name='Квартира на которую пожаловались',
+        related_name='complaint',
     )
     text = models.TextField('Текст жалобы', blank=True)
 
