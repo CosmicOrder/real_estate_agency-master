@@ -25,9 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'phonenumber_field',
     'property.apps.PropertyConfig',
-]
+] + env.list('ADDITIONAL_APPS', [])
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
