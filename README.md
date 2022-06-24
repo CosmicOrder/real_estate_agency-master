@@ -8,13 +8,6 @@
 - Установите зависимости командой `pip install -r requirements.txt`
 - Создайте файл базы данных и сразу примените все миграции командой `python3 manage.py migrate`
 - Добавьте `phonenumber_field` в список установленных приложений в settings.py файл:
-```python
-INSTALLED_APPS = [
-    ...
-    'phonenumber_field',
-    ...
-]
-```
 - Запустите сервер командой `python3 manage.py runserver`
 
 ## Переменные окружения
@@ -25,9 +18,11 @@ INSTALLED_APPS = [
 - `DEBUG` — дебаг-режим. Поставьте True, чтобы увидеть отладочную информацию в случае ошибки.
 - `SECRET_KEY` — секретный ключ проекта
 - `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
-- `DATABASE` — однострочный адрес к базе данных, например: `sqlite:///db.sqlite3`. Больше информации в [документации](https://github.com/jacobian/dj-database-url)
-
-    Это позволяет легко переключаться между базами данных: PostgreSQL, MySQL, SQLite — без разницы, нужно лишь подставить нужный адрес.
+- `DATABASE` — однострочный адрес к базе данных, например: `sqlite:///db.sqlite3`. 
+Больше информации в [документации](https://github.com/jacobian/dj-database-url). Это позволяет легко переключаться 
+между базами данных: PostgreSQL, MySQL, SQLite — без разницы, нужно лишь подставить нужный адрес.
+- `ADDITIONAL_APPS` — список дополнительных приложений, которые используются в проекте. 
+В нашем случае туда надо добавить только `phonenumber_field`.
 
 ## Цели проекта
 
