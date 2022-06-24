@@ -51,7 +51,7 @@ class Flat(models.Model):
         User,
         blank=True,
         verbose_name='Кто лайкнул',
-        related_name='liked_by'
+        related_name='likes'
     )
 
     def __str__(self):
@@ -63,19 +63,19 @@ class Complaint(models.Model):
         User,
         on_delete=models.CASCADE,
         verbose_name='Кто жаловался',
-        related_name='complaint',
+        related_name='complaints',
     )
     flat = models.ForeignKey(
         Flat,
         on_delete=models.CASCADE,
         verbose_name='Квартира на которую пожаловались',
-        related_name='complaint',
+        related_name='complaints',
     )
     text = models.TextField('Текст жалобы', blank=True)
 
 
 class Owner(models.Model):
-    owner = models.CharField(
+    full_name = models.CharField(
         'ФИО владельца',
         max_length=200,
         db_index=True,
@@ -93,7 +93,7 @@ class Owner(models.Model):
     flat = models.ManyToManyField(
         Flat,
         verbose_name='Квартиры в собственности',
-        related_name='owner',
+        related_name='owners',
         db_index=True,
     )
 
